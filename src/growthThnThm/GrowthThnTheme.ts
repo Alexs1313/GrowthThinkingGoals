@@ -1,0 +1,42 @@
+import {Platform} from 'react-native';
+
+export const growthThnColors = {
+  background: '#030807',
+  backgroundGradientStart: '#0c0101',
+  backgroundGradientEnd: '#180505',
+  panel: '#1a0606',
+  panelInner: '#200c0c',
+  panelStrong: 'rgba(61, 20, 20, 0.7)',
+  accent: '#c41500',
+  accentDark: '#9a0000',
+  accentYellow: '#ffd700',
+  accentGold: '#d4900a',
+  accentGoldDark: '#9a5a00',
+  accentOrange: '#ff8c00',
+  accentSuccess: '#22c55e',
+  accentSuccessDark: '#16a34a',
+  textPlaceholder: '#5a2a1a',
+  text: '#ffffff',
+  textMuted: '#9a6040',
+  textMutedDark: '#7a4030',
+  tabIdle: '#5a4030',
+  border: '#2e1414',
+  borderStrong: '#3d1414',
+  progressInactive: '#2e1414',
+  progressActive: '#c41500',
+  sunYellow: '#ffff00',
+  sunOrange: '#ffa500',
+  white: '#ffffff',
+  black: '#030807',
+};
+
+export const growthThnMetrics = {
+  screenPadding: 24,
+  screenPaddingWide: 32,
+  cardRadius: 16,
+  buttonRadius: 16,
+  tabHeight: 78,
+  tabBottomOffset: Platform.OS === 'ios' ? 0 : 0,
+  androidEdge: Platform.OS === 'android' ? 30 : 0,
+  onboardingSteps: 6,
+};

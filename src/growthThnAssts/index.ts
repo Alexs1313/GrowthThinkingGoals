@@ -1,0 +1,15 @@
+export const growthThnImages = {
+  loaderBackground: require('./loader_background.png'),
+  onboardingCustomize: require('./AddHabitIllustration.png'),
+  onboardingHabits: require('./HabitCalendarIllustration.png'),
+  onboardingChallenges: require('./TimerIllustration.png'),
+  onboardingLogic: require('./GameIllustration.png'),
+  onboardingArticles: require('./ArticlesIllustration.png'),
+  onboardingProgress: require('./StatsIllustration.png'),
+  tabHabits: require('./habits.png'),
+  tabTasks: require('./tasks.png'),
+  tabArticles: require('./articles.png'),
+  tabDiscs: require('./discs.png'),
+  tabStats: require('./stats.png'),
+  share: require('./share.png'),
+} as const;
