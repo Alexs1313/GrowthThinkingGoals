@@ -1,4 +1,4 @@
-package com.growththinkinggoals
+package com.growthdisc.mercury.goals
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

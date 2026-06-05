@@ -1,4 +1,4 @@
-package com.growththinkinggoals
+package com.growthdisc.mercury.goals
 
 import android.app.Application
 import com.facebook.react.PackageList

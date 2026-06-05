@@ -2,8 +2,8 @@ import {Platform} from 'react-native';
 
 export const growthThnColors = {
   background: '#030807',
-  backgroundGradientStart: '#0c0101',
-  backgroundGradientEnd: '#180505',
+  backgroundGradientStart: 'rgba(97, 13, 13, 0.7)',
+  backgroundGradientEnd: 'rgba(26, 3, 3, 0.98)',
   panel: '#1a0606',
   panelInner: '#200c0c',
   panelStrong: 'rgba(61, 20, 20, 0.7)',
