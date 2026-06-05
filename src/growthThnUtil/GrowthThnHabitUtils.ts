@@ -80,3 +80,27 @@ export function growthThnFormatTodayHeading(date = new Date()): string {
     day: 'numeric',
   });
 }
+
+export function growthThnFormatHabitsTodayShareMessage(
+  progress: ReturnType<typeof growthThnGetTodayProgress>,
+  motivation: string,
+  date = new Date(),
+): string {
+  const growthThnLines = [`Today's Growth — ${growthThnFormatTodayHeading(date)}`, ''];
+
+  if (progress.total === 0) {
+    growthThnLines.push('No habits scheduled for today.');
+  } else {
+    growthThnLines.push(
+      `${progress.done}/${progress.total} Habits Done (${progress.percent}%)`,
+      motivation,
+      '',
+      "Today's habits:",
+      ...progress.habits.map(
+        habit => `${habit.doneToday ? '✓' : '○'} ${habit.title}`,
+      ),
+    );
+  }
+
+  return growthThnLines.join('\n');
+}

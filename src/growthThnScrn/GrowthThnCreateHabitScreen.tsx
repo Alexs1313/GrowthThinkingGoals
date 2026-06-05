@@ -17,7 +17,10 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {GrowthThnDayPicker} from '../growthThnCpnnts/GrowthThnDayPicker';
 import {useGrowthThnHabits} from '../growthThnCtx/GrowthThnHabitsContext';
 import type {GrowthThnHabitsStackParamList} from '../growthThnNav/GrowthThnHabitsStackTypes';
-import {growthThnColors, growthThnMetrics} from '../growthThnThm/GrowthThnTheme';
+import {
+  growthThnColors,
+  growthThnMetrics,
+} from '../growthThnThm/GrowthThnTheme';
 
 const GROWTH_THN_DEFAULT_DAYS = [0, 2, 4];
 
@@ -33,7 +36,9 @@ export function GrowthThnCreateHabitScreen() {
   );
 
   const growthThnCanSave = useMemo(() => {
-    return growthThnHabitName.trim().length > 0 && growthThnSelectedDays.length > 0;
+    return (
+      growthThnHabitName.trim().length > 0 && growthThnSelectedDays.length > 0
+    );
   }, [growthThnHabitName, growthThnSelectedDays]);
 
   const growthThnToggleDay = useCallback((dayIndex: number) => {
@@ -51,7 +56,13 @@ export function GrowthThnCreateHabitScreen() {
     }
     growthThnAddHabit(growthThnHabitName, growthThnSelectedDays);
     navigation.goBack();
-  }, [growthThnAddHabit, growthThnCanSave, growthThnHabitName, growthThnSelectedDays, navigation]);
+  }, [
+    growthThnAddHabit,
+    growthThnCanSave,
+    growthThnHabitName,
+    growthThnSelectedDays,
+    navigation,
+  ]);
 
   return (
     <View style={styles.growthThnRoot}>
@@ -69,9 +80,11 @@ export function GrowthThnCreateHabitScreen() {
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={[
             styles.growthThnScroll,
-            {paddingTop: insets.top + 8, paddingBottom: insets.bottom + 24},
+            {paddingTop: insets.top + 8, paddingBottom: insets.bottom + 94},
           ]}>
-          <Pressable onPress={() => navigation.goBack()} style={styles.growthThnBack}>
+          <Pressable
+            onPress={() => navigation.goBack()}
+            style={styles.growthThnBack}>
             <Text style={styles.growthThnBackText}>‹ Back</Text>
           </Pressable>
 

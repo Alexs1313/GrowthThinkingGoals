@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Platform, Pressable, StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import {growthThnColors} from '../growthThnThm/GrowthThnTheme';
@@ -26,7 +26,13 @@ export function GrowthThnOnboardingPrimaryButton({
         end={{x: 1, y: 1}}
         style={styles.growthThnButton}>
         <Text style={styles.growthThnLabel}>{label}</Text>
-        <Text style={styles.growthThnArrow}>→</Text>
+        <Text
+          style={[
+            styles.growthThnArrow,
+            Platform.OS === 'android' && {bottom: 2.5},
+          ]}>
+          →
+        </Text>
       </LinearGradient>
     </Pressable>
   );

@@ -35,11 +35,11 @@ export function GrowthThnCompletedTasksScreen() {
   const growthThnOnShare = async (title: string, focusedSeconds: number) => {
     try {
       await Share.share({
-        message: `${title}\nFocus time: ${growthThnFormatTimer(focusedSeconds)}`,
+        message: `${title}\nFocus time: ${growthThnFormatTimer(
+          focusedSeconds,
+        )}`,
       });
-    } catch {
-      // user dismissed
-    }
+    } catch {}
   };
 
   return (
@@ -49,11 +49,13 @@ export function GrowthThnCompletedTasksScreen() {
           styles.growthThnScroll,
           {
             paddingTop: insets.top + 8,
-            paddingBottom: insets.bottom + 32,
+            paddingBottom: insets.bottom + 52,
           },
         ]}
         showsVerticalScrollIndicator={false}>
-        <Pressable onPress={() => navigation.goBack()} style={styles.growthThnBack}>
+        <Pressable
+          onPress={() => navigation.goBack()}
+          style={styles.growthThnBack}>
           <Text style={styles.growthThnBackText}>‹ Back</Text>
         </Pressable>
 
@@ -62,7 +64,9 @@ export function GrowthThnCompletedTasksScreen() {
 
         {completedTasks.length === 0 ? (
           <View style={styles.growthThnEmpty}>
-            <Text style={styles.growthThnEmptyTitle}>No completed tasks yet</Text>
+            <Text style={styles.growthThnEmptyTitle}>
+              No completed tasks yet
+            </Text>
             <Text style={styles.growthThnEmptySub}>
               Finish a daily challenge to see it here.
             </Text>

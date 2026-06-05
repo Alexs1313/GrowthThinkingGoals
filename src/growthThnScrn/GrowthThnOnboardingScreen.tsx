@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
   },
   growthThnInner: {
     flex: 1,
+    paddingBottom: 20,
   },
   growthThnHeader: {
     flexDirection: 'row',

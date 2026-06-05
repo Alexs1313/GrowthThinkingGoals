@@ -7,7 +7,11 @@ import {
   Text,
   View,
 } from 'react-native';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {
+  useFocusEffect,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import type {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -29,6 +33,7 @@ import {
   growthThnColors,
   growthThnMetrics,
 } from '../growthThnThm/GrowthThnTheme';
+import Orientation from 'react-native-orientation-locker';
 
 export function GrowthThnDiscGameScreen() {
   const navigation =
@@ -74,6 +79,16 @@ export function GrowthThnDiscGameScreen() {
   useEffect(() => {
     growthThnSecondsRef.current = seconds;
   }, [seconds]);
+
+  useFocusEffect(
+    useCallback(() => {
+      Orientation.lockToPortrait();
+
+      return () => {
+        Orientation.unlockAllOrientations();
+      };
+    }, []),
+  );
 
   useEffect(() => {
     if (!isRunning) {

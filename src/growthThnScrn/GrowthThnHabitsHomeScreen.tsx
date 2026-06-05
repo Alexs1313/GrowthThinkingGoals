@@ -3,6 +3,7 @@ import {
   Image,
   Pressable,
   ScrollView,
+  Share,
   StyleSheet,
   Text,
   View,
@@ -15,6 +16,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useGrowthThnHabits} from '../growthThnCtx/GrowthThnHabitsContext';
 import type {GrowthThnHabitsStackParamList} from '../growthThnNav/GrowthThnHabitsStackTypes';
 import {
+  growthThnFormatHabitsTodayShareMessage,
   growthThnFormatRepeatDaysBullet,
   growthThnFormatTodayHeading,
   growthThnGetCurrentWeek,
@@ -44,6 +46,19 @@ export function GrowthThnHabitsHomeScreen() {
       ? 'Great job today!'
       : 'Keep going!';
 
+  const growthThnOnShare = async () => {
+    try {
+      await Share.share({
+        message: growthThnFormatHabitsTodayShareMessage(
+          growthThnProgress,
+          growthThnMotivation,
+        ),
+      });
+    } catch {
+   
+    }
+  };
+
   return (
     <View style={styles.growthThnRoot}>
       <LinearGradient
@@ -69,9 +84,13 @@ export function GrowthThnHabitsHomeScreen() {
               Small actions build stronger days.
             </Text>
           </View>
-          <View style={styles.growthThnShare}>
+          <Pressable
+            onPress={growthThnOnShare}
+            style={styles.growthThnShare}
+            accessibilityRole="button"
+            accessibilityLabel="Share today's habits">
             <Image source={require('../growthThnAssts/share.png')} />
-          </View>
+          </Pressable>
         </View>
 
         <View style={styles.growthThnCard}>
